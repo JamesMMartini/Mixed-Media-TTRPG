@@ -31,7 +31,7 @@ public class ForestRoom
         }
         else if (difficulty < 7)
         {
-            int numEnemies = (int)((Random.value * (difficulty - 1)) + 3);
+            int numEnemies = (int)((Random.value * (difficulty - 3)) + 3);
             for (int i = 0; i < numEnemies; i++)
             {
                 int enemyType = (int)(Random.value * 2);
