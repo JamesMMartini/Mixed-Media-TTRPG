@@ -54,9 +54,13 @@ public class FightMenuManager : MonoBehaviour
                     readingCount++;
                 }
             }
-            else if (reading && Input.GetKeyUp(KeyCode.Return)) // Someone is finishing an action
+            else if (Input.GetKeyUp(KeyCode.Return)) // Someone is finishing an action
             {
-                if (actedObject.tag == "Enemy") // Deal damage to an enemy
+                if (actedObject == null) // The player has passed, do nothing
+                {
+
+                }
+                else if (actedObject.tag == "Enemy") // Deal damage to an enemy
                 {
                     actedObject.GetComponent<EnemyObject>().health -= readingCount;
                     if (actedObject.GetComponent<EnemyObject>().health <= 0)
@@ -64,8 +68,6 @@ public class FightMenuManager : MonoBehaviour
                         // Kill the enemy
                         enemies.Remove(actedObject);
                         Destroy(actedObject);
-
-                        Debug.Log(enemyParent.transform.childCount);
 
                         // Check to see if all of the enemies are dead
                         if (enemies.Count == 0) // If they're all dead

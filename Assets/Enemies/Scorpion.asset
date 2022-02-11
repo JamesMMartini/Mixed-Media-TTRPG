@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Scorpion
   attack: 3
-  health: 3
+  health: 5
   turnCount: 1

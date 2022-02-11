@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   enemyName: Goblin
-  attack: 6
-  health: 6
+  attack: 5
+  health: 10
   turnCount: 1
