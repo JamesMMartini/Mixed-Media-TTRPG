@@ -40,14 +40,14 @@ public class ForestRoom
         }
         else if (difficulty < 10)
         {
-            int numEnemies = (int)((Random.value * (difficulty - 1)) + 3);
+            int numEnemies = (int)((Random.value * (difficulty - 4)) + 4);
             for (int i = 0; i < numEnemies; i++)
             {
                 int enemyType = (int)(Random.value * 3);
                 enemies.Add(enemyTypes[enemyType]);
             }
         }
-        else // Miniboss
+        else // Boss
         {
             enemies.Add(enemyTypes[3]);
         }

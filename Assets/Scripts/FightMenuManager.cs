@@ -176,7 +176,7 @@ public class FightMenuManager : MonoBehaviour
             difficulty = ((int)(Random.value * 3)) + 7;
         }
 
-        if (gameManager.row == 5 && gameManager.column == 6)
+        if (gameManager.row == 5 && gameManager.column == 5)
             difficulty = 10;
 
         ForestRoom room = new ForestRoom(difficulty);

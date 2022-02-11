@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject fightMenu;
     public GameObject lootMenu;
+    public GameObject winMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +43,16 @@ public class GameManager : MonoBehaviour
 
     public void EndFight()
     {
-        fightMenu.SetActive(false);
-        lootMenu.SetActive(true);
+        if (row == 5 && column == 5)
+        {
+            fightMenu.SetActive(false);
+            winMenu.SetActive(true);
+        }
+        else
+        {
+            fightMenu.SetActive(false);
+            lootMenu.SetActive(true);
+        }
     }
 
     public void ShowRoomMenu()
@@ -74,9 +83,14 @@ public class GameManager : MonoBehaviour
         // See if we have entered the boss room
         if (row == rooms.Length - 1 && column == rooms[0].Length - 1)
         {
-            Debug.Log("FINAL BOSS");
+            // Mark the room as visited
+            rooms[row][column] = true;
 
-            nextRoomMenu.UnloadMenu();
+            // Simulate the encounter
+            fightMenu.SetActive(true);
+            fightMenu.GetComponent<FightMenuManager>().NewRoom();
+            nextRoomMenu.LoadMenu();
+            nextRoomMenu.gameObject.SetActive(false);
         }
         else if (!rooms[row][column]) // If we haven't been to the room
         {
